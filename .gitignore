@@ -1,0 +1,9 @@
+server/target/
+server/notes.db
+server/notes.db-shm
+server/notes.db-wal
+build/
+*.zip
+.DS_Store
+DerivedData/
+*.xcuserstate

@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1001 /* NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2001 /* NotesApp.swift */; };
+		1002 /* NotesTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2002 /* NotesTheme.swift */; };
+		1003 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003 /* Note.swift */; };
+		1004 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004 /* Folder.swift */; };
+		1005 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005 /* Attachment.swift */; };
+		1006 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006 /* APIService.swift */; };
+		1007 /* LocalCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007 /* LocalCacheService.swift */; };
+		1008 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2008 /* FolderListViewModel.swift */; };
+		1009 /* NotesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009 /* NotesListViewModel.swift */; };
+		1010 /* NoteEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010 /* NoteEditorViewModel.swift */; };
+		1011 /* FolderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011 /* FolderListView.swift */; };
+		1012 /* NotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012 /* NotesListView.swift */; };
+		1013 /* NoteEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2013 /* NoteEditorView.swift */; };
+		1014 /* NoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014 /* NoteRowView.swift */; };
+		1015 /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2015 /* DrawingCanvasView.swift */; };
+		1016 /* AttachmentViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016 /* AttachmentViewer.swift */; };
+		1017 /* FormattingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2017 /* FormattingToolbar.swift */; };
+		1018 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0001 /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2001 /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
+		2002 /* NotesTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTheme.swift; sourceTree = "<group>"; };
+		2003 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		2004 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		2005 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		2006 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		2007 /* LocalCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCacheService.swift; sourceTree = "<group>"; };
+		2008 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
+		2009 /* NotesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModel.swift; sourceTree = "<group>"; };
+		2010 /* NoteEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorViewModel.swift; sourceTree = "<group>"; };
+		2011 /* FolderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListView.swift; sourceTree = "<group>"; };
+		2012 /* NotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListView.swift; sourceTree = "<group>"; };
+		2013 /* NoteEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorView.swift; sourceTree = "<group>"; };
+		2014 /* NoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRowView.swift; sourceTree = "<group>"; };
+		2015 /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
+		2016 /* AttachmentViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentViewer.swift; sourceTree = "<group>"; };
+		2017 /* FormattingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingToolbar.swift; sourceTree = "<group>"; };
+		2018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4001 = {
+			isa = PBXGroup;
+			children = (
+				4002 /* NotesApp */,
+				4003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4002 /* NotesApp */ = {
+			isa = PBXGroup;
+			children = (
+				2001 /* NotesApp.swift */,
+				2000 /* Info.plist */,
+				4004 /* Theme */,
+				4005 /* Models */,
+				4006 /* Services */,
+				4007 /* ViewModels */,
+				4008 /* Views */,
+			);
+			path = NotesApp;
+			sourceTree = "<group>";
+		};
+		4003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0001 /* NotesApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4004 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				2002 /* NotesTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		4005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2003 /* Note.swift */,
+				2004 /* Folder.swift */,
+				2005 /* Attachment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4006 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2006 /* APIService.swift */,
+				2007 /* LocalCacheService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4007 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2008 /* FolderListViewModel.swift */,
+				2009 /* NotesListViewModel.swift */,
+				2010 /* NoteEditorViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4008 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2011 /* FolderListView.swift */,
+				2012 /* NotesListView.swift */,
+				2013 /* NoteEditorView.swift */,
+				2014 /* NoteRowView.swift */,
+				2015 /* DrawingCanvasView.swift */,
+				2016 /* AttachmentViewer.swift */,
+				2017 /* FormattingToolbar.swift */,
+				2018 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5001 /* NotesApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6001 /* Build configuration list for PBXNativeTarget "NotesApp" */;
+			buildPhases = (
+				7001 /* Sources */,
+				3001 /* Frameworks */,
+				8001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotesApp;
+			productName = NotesApp;
+			productReference = 0001 /* NotesApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					5001 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 6002 /* Build configuration list for PBXProject "NotesApp" */;
+			compatibilityVersion = "Xcode 27.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4001;
+			productRefGroup = 4003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5001 /* NotesApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1001 /* NotesApp.swift in Sources */,
+				1002 /* NotesTheme.swift in Sources */,
+				1003 /* Note.swift in Sources */,
+				1004 /* Folder.swift in Sources */,
+				1005 /* Attachment.swift in Sources */,
+				1006 /* APIService.swift in Sources */,
+				1007 /* LocalCacheService.swift in Sources */,
+				1008 /* FolderListViewModel.swift in Sources */,
+				1009 /* NotesListViewModel.swift in Sources */,
+				1010 /* NoteEditorViewModel.swift in Sources */,
+				1011 /* FolderListView.swift in Sources */,
+				1012 /* NotesListView.swift in Sources */,
+				1013 /* NoteEditorView.swift in Sources */,
+				1014 /* NoteRowView.swift in Sources */,
+				1015 /* DrawingCanvasView.swift in Sources */,
+				1016 /* AttachmentViewer.swift in Sources */,
+				1017 /* FormattingToolbar.swift in Sources */,
+				1018 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NotesApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.kreatix.NotesCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NotesApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.kreatix.NotesCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6001 /* Build configuration list for PBXNativeTarget "NotesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B001 /* Debug */,
+				B002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6002 /* Build configuration list for PBXProject "NotesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A001 /* Debug */,
+				A002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9001 /* Project object */;
+}
