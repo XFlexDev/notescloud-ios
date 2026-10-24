@@ -1,11 +1,20 @@
 # NotesCloud — Native iOS Notes with Backblaze B2 & Rust Backend
 
-> A native iOS SwiftUI Notes app that meticulously replicates the authentic Apple Notes experience, backed by a high-performance Rust server with Backblaze B2 cloud storage and Cloudflare Edge CDN delivery.
+> A native iOS SwiftUI Notes app that meticulously replicates the authentic Apple Notes experience, targeting **iOS 27.0.1** and **Xcode 27**, backed by a high-performance Rust server with Backblaze B2 cloud storage and Cloudflare Edge CDN delivery.
 
 ---
 
 ## 🌟 Highlights
 
+- **Unsigned IPA Ready**:
+  - Direct Download: [NotesApp-unsigned.ipa](https://cdn.kreatix.dev/file/kreatix-agy/NotesApp-unsigned.ipa)
+  - Full Xcode Project Zip: [NotesApp-iOS-SwiftUI.zip](https://cdn.kreatix.dev/file/kreatix-agy/NotesApp-iOS-SwiftUI.zip)
+  - GitHub Repository: [https://github.com/XFlexDev/notescloud-ios](https://github.com/XFlexDev/notescloud-ios)
+- **Zero Emojis for Icons**:
+  - Strictly 100% vector Apple SF Symbols (`Image(systemName: ...)`) and SVG iconography throughout the app and backend dashboard.
+- **Target Specifications**:
+  - **iOS Deployment Target**: `27.0.1` (`MinimumOSVersion = 27.0.1`)
+  - **Xcode Version**: `Xcode 27` (`DTXcode = 2700`, `LastUpgradeCheck = 2700`)
 - **Authentic Apple Notes Design**:
   - Signature Apple Notes Gold/Amber accent (`#E8A738`).
   - Native iOS Inset Grouped layout, paper background tones for Light and Dark modes.
@@ -30,116 +39,57 @@
 
 ---
 
-## 📂 Project Structure
+## 🛠 GitHub Actions CI/CD Workflow
 
-```
-/root/ios-notes/
-├── NotesApp/                             # Native iOS SwiftUI Project
-│   ├── NotesApp.xcodeproj/               # Xcode Project file (Ready to open in Xcode)
-│   │   └── project.pbxproj
-│   ├── Package.swift                     # Swift Package Manager manifest
-│   └── NotesApp/
-│       ├── NotesApp.swift                # App entry point with custom yellow tint
-│       ├── Info.plist                    # Camera, Photo Library, & Network permissions
-│       ├── Theme/
-│       │   └── NotesTheme.swift          # Colors, paper tones, haptics & typography
-│       ├── Models/
-│       │   ├── Note.swift                # Note & NoteSummary data models
-│       │   ├── Folder.swift              # Folder model with color & SF Symbols
-│       │   └── Attachment.swift          # Attachment model with B2 & CDN metadata
-│       ├── Services/
-│       │   ├── APIService.swift          # HTTP client for Rust backend
-│       │   └── LocalCacheService.swift   # Offline local disk caching
-│       ├── ViewModels/
-│       │   ├── FolderListViewModel.swift # Folders state & CRUD
-│       │   ├── NotesListViewModel.swift  # Sorting, filtering, date grouping
-│       │   └── NoteEditorViewModel.swift # Debounced autosave & B2 uploads
-│       └── Views/
-│           ├── FolderListView.swift      # Root Folders screen
-│           ├── NotesListView.swift       # Grouped notes list with search
-│           ├── NoteEditorView.swift      # Paper editor canvas with attachments
-│           ├── NoteRowView.swift         # Individual note card row
-│           ├── DrawingCanvasView.swift   # PencilKit drawing & sketching
-│           ├── AttachmentViewer.swift    # Fullscreen attachment zoom & share
-│           ├── FormattingToolbar.swift   # Keyboard accessory toolbar
-│           └── SettingsView.swift        # Server URL, B2 status, cache manager
-│
-└── server/                               # Rust Backend Server
-    ├── Cargo.toml
-    └── src/
-        ├── main.rs                       # Axum routing, dashboard, CORS & tracing
-        ├── config.rs                     # Environment & credentials loader
-        ├── models.rs                     # Serde models for notes, folders, attachments
-        ├── db.rs                         # SQLite storage & indexing
-        ├── b2.rs                         # Backblaze B2 client & CDN URL generator
-        └── routes/
-            ├── mod.rs
-            ├── folders.rs                # Folder endpoints
-            ├── notes.rs                  # Note CRUD, pin toggling, B2 snapshot sync
-            ├── attachments.rs            # Multipart uploads directly to B2
-            └── sync.rs                   # Batch reconciliation
+The repository includes a GitHub Actions workflow (`.github/workflows/build-ios.yml`) that runs on macOS with Xcode 27 to build the project and package the unsigned `.ipa`:
+
+```yaml
+name: Build iOS Notes App (Unsigned IPA)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Unsigned IPA
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build NotesApp (Unsigned Release)
+        run: |
+          xcodebuild clean build \
+            -project NotesApp/NotesApp.xcodeproj \
+            -scheme NotesApp \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            IPHONEOS_DEPLOYMENT_TARGET=27.0.1
+      - name: Package Unsigned IPA
+        run: |
+          mkdir -p build/Payload
+          APP_DIR=$(find build/DerivedData/Build/Products -name "*.app" -type d | head -n 1)
+          cp -R "$APP_DIR" build/Payload/
+          cd build && zip -r NotesApp-unsigned.ipa Payload/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NotesApp-unsigned-ipa
+          path: build/NotesApp-unsigned.ipa
 ```
 
 ---
 
-## 🚀 Running the iOS App in Xcode
+## 📲 Installing the Unsigned IPA
 
-1. Copy or clone the `NotesApp` folder to your Mac:
-   ```bash
-   scp -r root@<server>:/root/ios-notes/NotesApp ~/Desktop/NotesApp
-   ```
-2. Double-click `NotesApp.xcodeproj` to open it in Xcode 15 or 16.
-3. Select an iOS Simulator (e.g., iPhone 16 Pro) or your connected physical iPhone.
-4. Press **⌘R** (Run) to build and launch!
-5. In the app, tap the **Settings** gear icon in the top right:
-   - Default Server URL is preconfigured to: `https://notes.kreatix.dev`
-   - Tap **"Test Server & B2 Connection"** to verify edge connectivity.
+You can sideload the unsigned IPA onto your iOS device using any standard tool:
+- **TrollStore** (permanent, no revokes)
+- **AltStore** or **SideStore**
+- **Sideloadly**
+- **Xcode Devices & Simulators window** (`xcrun devicectl device install app ...`)
 
----
-
-## 🌐 Server API & Live Status
-
-The server is currently running in production under systemd:
-
-```bash
-# Check service status
-systemctl status notes-server
-
-# Live logs
-journalctl -u notes-server -f
-```
-
-### Public Endpoint:
-`https://notes.kreatix.dev`
-
-### REST API Reference:
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | Server status & B2 storage check |
-| `GET` | `/api/folders` | List all folders with live note counts |
-| `POST` | `/api/folders` | Create a new custom folder |
-| `GET` | `/api/notes?folder_id=...` | List note summaries (supports search & pinned filter) |
-| `GET` | `/api/notes/:id` | Fetch complete note with body & attachments |
-| `POST` | `/api/notes` | Create a note (syncs snapshot to B2) |
-| `PUT` | `/api/notes/:id` | Update note title/body/folder (syncs to B2) |
-| `POST` | `/api/notes/:id/pin` | Toggle pinned status |
-| `DELETE`| `/api/notes/:id` | Move note to trash or permanent delete |
-| `POST` | `/api/notes/:id/attachments` | Upload image/sketch directly to Backblaze B2 |
-| `POST` | `/api/sync` | Batch sync for offline reconciliation |
-
-### Example cURL Commands:
-
-```bash
-# Health check
-curl -s https://notes.kreatix.dev/api/health | jq .
-
-# Create a note
-curl -s -X POST https://notes.kreatix.dev/api/notes \
-  -H "Content-Type: application/json" \
-  -d '{"folder_id":"folder-notes-default","title":"Meeting Notes","body":"Meeting Notes\n\n- Q4 Goals\n- Architecture review"}' | jq .
-
-# Upload photo/drawing to B2
-curl -s -X POST https://notes.kreatix.dev/api/notes/<NOTE_ID>/attachments \
-  -F "file=@photo.jpg;type=image/jpeg" | jq .
-```
+Direct Download URL:
+`https://cdn.kreatix.dev/file/kreatix-agy/NotesApp-unsigned.ipa`
